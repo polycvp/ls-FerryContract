@@ -10,7 +10,6 @@ import eto.*;
 import java.util.Collection;
 
 /**
- *
  * @author Group F
  */
 public interface CustomerContract {
@@ -44,6 +43,22 @@ public interface CustomerContract {
     public ReservationSummary makeReservation(ReservationDetail resDetail) throws NoSuchReservationException;
     
     /**
+     * 
+     * @param reservationId
+     * @return
+     * @throws NoSuchReservationException 
+     */
+    public boolean deleteReservation(int reservationId) throws NoSuchReservationException;
+    
+    /**
+     * 
+     * @param resDetail
+     * @return
+     * @throws NoSuchReservationException 
+     */
+    public ReservationSummary editReservation(ReservationDetail resDetail) throws NoSuchReservationException;
+    
+    /**
      * checks weather a user is a resident and entitled to special discounts
      * @return true or false depending on the user account
      * @pre user account must exist
@@ -67,4 +82,19 @@ public interface CustomerContract {
      * @throws NoSuchAccountException 
      */
     public AccountDetail login(String email,String password) throws NoSuchAccountException;
+    
+    /**
+     * 
+     * @param accDetail
+     * @return 
+     */
+    public AccountSummary deleteAccount(AccountDetail accDetail);
+    
+    /**
+     * 
+     * @param accDetail
+     * @return
+     * @throws NoSuchAccountException 
+     */
+    public boolean editAccount(AccountDetail accDetail) throws NoSuchAccountException;
 }
